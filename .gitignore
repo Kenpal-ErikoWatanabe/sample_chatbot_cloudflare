@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.wrangler/
+
+# 環境変数（APIトークンを含む）
+.env.local
+.env*.local
+*.env
+
+# OS
+.DS_Store

@@ -1,0 +1,14 @@
+{
+  "name": "kenpal-chatbot-worker",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-04-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "r2_buckets": [
+    { "binding": "R2", "bucket_name": "kenpal-chatbot", "preview_bucket_name": "kenpal-chatbot" }
+  ],
+  "ai": { "binding": "AI" },
+  "ai_search": [
+    { "binding": "AI_SEARCH", "instance_name": "kenpal-chatbot-search", "remote": true }
+  ]
+}
