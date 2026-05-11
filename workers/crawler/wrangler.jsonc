@@ -1,0 +1,20 @@
+{
+  "name": "kenpal-chatbot-crawler",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-09-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "browser": {
+    "binding": "BROWSER"
+  },
+  "r2_buckets": [
+    { "binding": "R2", "bucket_name": "kenpal-chatbot", "preview_bucket_name": "kenpal-chatbot" }
+  ],
+  "vars": {
+    "BASE_URL": "https://www.kenpalinc.com",
+    "R2_PREFIX": "kenpalinc"
+  },
+  "triggers": {
+    "crons": ["0 3 * * *"]
+  }
+}

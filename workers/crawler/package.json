@@ -1,0 +1,16 @@
+{
+  "name": "kenpal-chatbot-crawler",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@cloudflare/playwright": "^1.3.0",
+    "@cloudflare/workers-types": "^4.0.0",
+    "typescript": "^5.0.0",
+    "wrangler": "4"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "trigger": "wrangler dev --test-scheduled"
+  }
+}

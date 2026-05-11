@@ -5,7 +5,11 @@ dist/
 # 環境変数（APIトークンを含む）
 .env.local
 .env*.local
+.env.production
 *.env
+
+# エディタ・ローカル設定
+.claude/
 
 # OS
 .DS_Store

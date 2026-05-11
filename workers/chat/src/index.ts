@@ -40,6 +40,7 @@ const ALLOWED_ORIGINS = [
   'https://www.kenpalinc.com',
   'https://kenpalinc.com',
   'https://kenpal-chatbot-frontend.pages.dev',
+  'https://kenpal-chatbot.pages.dev',
 ];
 
 function getCorsHeaders(origin: string | null): Record<string, string> {
