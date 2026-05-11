@@ -1,4 +1,4 @@
-import type { ExportedHandler, R2Bucket } from '@cloudflare/workers-types';
+import type { ExportedHandler } from '@cloudflare/workers-types';
 
 interface ChatMessage {
   role: 'system' | 'user' | 'assistant';
@@ -23,7 +23,6 @@ interface AiSearchInstance {
 }
 
 export interface Env {
-  R2: R2Bucket;
   AI_SEARCH: AiSearchInstance;
 }
 
@@ -102,8 +101,6 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
       ],
       stream: false,
     });
-
-    console.log('chatCompletions result:', JSON.stringify(result));
 
     const reply = result.choices?.[0]?.message?.content ?? 'その情報は持ち合わせておりません。';
 

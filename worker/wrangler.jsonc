@@ -7,7 +7,6 @@
   "r2_buckets": [
     { "binding": "R2", "bucket_name": "kenpal-chatbot", "preview_bucket_name": "kenpal-chatbot" }
   ],
-  "ai": { "binding": "AI" },
   "ai_search": [
     { "binding": "AI_SEARCH", "instance_name": "kenpal-chatbot-search", "remote": true }
   ]
