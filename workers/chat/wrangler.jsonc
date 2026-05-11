@@ -8,6 +8,6 @@
     { "binding": "R2", "bucket_name": "kenpal-chatbot", "preview_bucket_name": "kenpal-chatbot" }
   ],
   "ai_search": [
-    { "binding": "AI_SEARCH", "instance_name": "kenpal-chatbot-search", "remote": true }
+    { "binding": "AI_SEARCH", "instance_name": "kenpal-chatbot", "remote": true }
   ]
 }
