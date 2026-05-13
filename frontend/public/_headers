@@ -1,2 +1,2 @@
 /*
-  Content-Security-Policy: frame-ancestors https://www.kenpalinc.com https://kenpalinc.com https://*.studio.design
+  Content-Security-Policy: frame-ancestors https://www.kenpalinc.com https://kenpalinc.com https://*.studio.design https://*.studio.site
