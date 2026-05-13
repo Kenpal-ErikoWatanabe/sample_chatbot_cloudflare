@@ -43,19 +43,36 @@ const ALLOWED_ORIGINS = [
   'https://kenpal-chatbot.pages.dev',
 ];
 
-function getCorsHeaders(origin: string | null): Record<string, string> {
-  const isAllowed =
-    origin !== null &&
-    (ALLOWED_ORIGINS.includes(origin) ||
-      origin.startsWith('http://localhost') ||
-      origin.startsWith('http://127.0.0.1'));
+/** Pages の本番 URL + プレビュー（df18b518.xxx や branch--xxx など）を許可 */
+function isOriginAllowed(origin: string | null): boolean {
+  if (origin === null) return false;
+  if (ALLOWED_ORIGINS.includes(origin)) return true;
+  if (origin.startsWith('http://localhost') || origin.startsWith('http://127.0.0.1')) return true;
+  try {
+    const u = new URL(origin);
+    if (u.protocol !== 'https:') return false;
+    const host = u.hostname;
+    return (
+      host === 'kenpal-chatbot-frontend.pages.dev' ||
+      host.endsWith('.kenpal-chatbot-frontend.pages.dev')
+    );
+  } catch {
+    return false;
+  }
+}
 
-  return {
-    'Access-Control-Allow-Origin': isAllowed && origin ? origin : ALLOWED_ORIGINS[0],
+function getCorsHeaders(origin: string | null): Record<string, string> {
+  const allowed = isOriginAllowed(origin);
+  const headers: Record<string, string> = {
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Max-Age': '86400',
   };
+  // 不許可時に別オリジンを返すとプリフライトが誤って失敗するため、許可時のみ ACAO を付ける
+  if (allowed && origin) {
+    headers['Access-Control-Allow-Origin'] = origin;
+  }
+  return headers;
 }
 
 interface HistoryEntry {
